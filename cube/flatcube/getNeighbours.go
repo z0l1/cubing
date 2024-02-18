@@ -5,7 +5,7 @@ package flatcube
 
 func getNeighbours(s Side) []Side {
 	if s == WhiteSide {
-		return []Side{BlueSide, OrangeSide, GreenSide, RedSide}
+		return []Side{RedSide, GreenSide, OrangeSide, BlueSide}
 	}
 
 	if s == RedSide {
