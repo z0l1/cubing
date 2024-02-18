@@ -1,12 +1,14 @@
 package flatcube
 
+type Side int
+
 const (
-	WhiteSide  = 0
-	RedSide    = 1
-	BlueSide   = 2
-	OrangeSide = 3
-	GreenSide  = 4
-	YellowSide = 5
+	WhiteSide  Side = 0
+	RedSide    Side = 1
+	BlueSide   Side = 2
+	OrangeSide Side = 3
+	GreenSide  Side = 4
+	YellowSide Side = 5
 )
 
 type side [][]string
