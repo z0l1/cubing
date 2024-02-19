@@ -1,6 +1,6 @@
 package flatcube
 
-func dirLoopInfo(_dir Direction) (start [2]int /*, end [2]int */, dir [2]int) {
+func getDirLoopInfo(_dir Direction) (start [2]int /*, end [2]int */, dir [2]int) {
 	switch _dir {
 	case Top:
 		start = [2]int{0, 0}
