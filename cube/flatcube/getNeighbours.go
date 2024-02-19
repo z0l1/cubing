@@ -3,30 +3,156 @@ package flatcube
 // could probably make sides indexed so its "fancier" to get neighbours
 // but this explanation took as much time as making the function below
 
-func getNeighbours(s Side) []Side {
-	if s == WhiteSide {
-		return []Side{RedSide, GreenSide, OrangeSide, BlueSide}
-	}
+// ...
+// yeah right
 
-	if s == RedSide {
-		return []Side{WhiteSide, BlueSide, YellowSide, GreenSide}
-	}
+// six sides 4 connections
+var sideConnections = [6][4]SideConnection{
+	//WhiteSide
+	{
+		//Top
+		{
+			side: OrangeSide,
+			dir:  Bottom,
+		},
+		//Bottom
+		{
+			side: RedSide,
+			dir:  Top,
+		},
+		//Left
+		{
+			side: GreenSide,
+			dir:  Top,
+		},
+		//Right
+		{
+			side: BlueSide,
+			dir:  Top,
+		},
+	},
 
-	if s == BlueSide {
-		return []Side{WhiteSide, OrangeSide, YellowSide, RedSide}
-	}
+	//RedSide
+	{
+		//Top
+		{
+			side: WhiteSide,
+			dir:  Bottom,
+		},
+		//Bottom
+		{
+			side: YellowSide,
+			dir:  Top,
+		},
+		//Left
+		{
+			side: GreenSide,
+			dir:  Right,
+		},
+		//Right
+		{
+			side: BlueSide,
+			dir:  Left,
+		},
+	},
 
-	if s == OrangeSide {
-		return []Side{WhiteSide, GreenSide, YellowSide, BlueSide}
-	}
+	//BlueSide
+	{
+		//Top
+		{
+			side: WhiteSide,
+			dir:  Right,
+		},
+		//Bottom
+		{
+			side: YellowSide,
+			dir:  Right,
+		},
+		//Left
+		{
+			side: RedSide,
+			dir:  Right,
+		},
+		//Right
+		{
+			side: OrangeSide,
+			dir:  Right,
+		},
+	},
 
-	if s == GreenSide {
-		return []Side{WhiteSide, RedSide, YellowSide, OrangeSide}
-	}
+	//OrangeSide
+	{
+		//Top
+		{
+			side: YellowSide,
+			dir:  Bottom,
+		},
+		//Bottom
+		{
+			side: WhiteSide,
+			dir:  Top,
+		},
+		//Left
+		{
+			side: GreenSide,
+			dir:  Left,
+		},
+		//Right
+		{
+			side: BlueSide,
+			dir:  Right,
+		},
+	},
 
-	if s == YellowSide {
-		return []Side{RedSide, BlueSide, OrangeSide, GreenSide}
-	}
+	//GreenSide
+	{
+		//Top
+		{
+			side: WhiteSide,
+			dir:  Left,
+		},
+		//Bottom
+		{
+			side: YellowSide,
+			dir:  Left,
+		},
+		//Left
+		{
+			side: OrangeSide,
+			dir:  Left,
+		},
+		//Right
+		{
+			side: RedSide,
+			dir:  Left,
+		},
+	},
 
-	return []Side{}
+	//YellowSide
+	{
+		//Top
+		{
+			side: RedSide,
+			dir:  Bottom,
+		},
+		//Bottom
+		{
+			side: OrangeSide,
+			dir:  Top,
+		},
+		//Left
+		{
+			side: GreenSide,
+			dir:  Bottom,
+		},
+		//Right
+		{
+			side: BlueSide,
+			dir:  Bottom,
+		},
+	},
+}
+
+func getNeighbours(s Side) [4]SideConnection {
+	return sideConnections[s]
 }

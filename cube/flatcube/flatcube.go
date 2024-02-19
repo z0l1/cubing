@@ -11,16 +11,20 @@ const (
 	YellowSide Side = 5
 )
 
-type side [][]string
+type Direction int
 
-type RubikCubeFlat struct {
-	cube []side
+const (
+	Top    Direction = 0
+	Bottom Direction = 1
+	Left   Direction = 2
+	Right  Direction = 3
+)
+
+type SideConnection struct {
+	side Side
+	dir  Direction
 }
 
-func makeSide(color string) side {
-	return side{
-		{color, color, color},
-		{color, color, color},
-		{color, color, color},
-	}
+type RubikCubeFlat struct {
+	sides [6][3][3]Side
 }
