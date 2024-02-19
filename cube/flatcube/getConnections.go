@@ -153,6 +153,6 @@ var sideConnections = [6][4]SideConnection{
 	},
 }
 
-func getNeighbours(s Side) [4]SideConnection {
+func getConnections(s Side) [4]SideConnection {
 	return sideConnections[s]
 }
