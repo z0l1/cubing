@@ -25,6 +25,8 @@ type SideConnection struct {
 	dir  Direction
 }
 
+type FlatCube [6][3][3]Side
+
 type RubikCubeFlat struct {
-	sides [6][3][3]Side
+	sides FlatCube
 }
