@@ -8,151 +8,151 @@ package flatcube
 
 // six sides 4 connections
 var sideConnections = [6][4]SideConnection{
-	//WhiteSide
+	//White
 	{
 		//Top
 		{
-			side: OrangeSide,
+			side: Orange,
 			dir:  Bottom,
 		},
 		//Bottom
 		{
-			side: RedSide,
+			side: Red,
 			dir:  Top,
 		},
 		//Left
 		{
-			side: GreenSide,
+			side: Green,
 			dir:  Top,
 		},
 		//Right
 		{
-			side: BlueSide,
+			side: Blue,
 			dir:  Top,
 		},
 	},
 
-	//RedSide
+	//Red
 	{
 		//Top
 		{
-			side: WhiteSide,
+			side: White,
 			dir:  Bottom,
 		},
 		//Bottom
 		{
-			side: YellowSide,
+			side: Yellow,
 			dir:  Top,
 		},
 		//Left
 		{
-			side: GreenSide,
+			side: Green,
 			dir:  Right,
 		},
 		//Right
 		{
-			side: BlueSide,
+			side: Blue,
 			dir:  Left,
 		},
 	},
 
-	//BlueSide
+	//Blue
 	{
 		//Top
 		{
-			side: WhiteSide,
+			side: White,
 			dir:  Right,
 		},
 		//Bottom
 		{
-			side: YellowSide,
+			side: Yellow,
 			dir:  Right,
 		},
 		//Left
 		{
-			side: RedSide,
+			side: Red,
 			dir:  Right,
 		},
 		//Right
 		{
-			side: OrangeSide,
+			side: Orange,
 			dir:  Right,
 		},
 	},
 
-	//OrangeSide
+	//Orange
 	{
 		//Top
 		{
-			side: YellowSide,
+			side: Yellow,
 			dir:  Bottom,
 		},
 		//Bottom
 		{
-			side: WhiteSide,
+			side: White,
 			dir:  Top,
 		},
 		//Left
 		{
-			side: GreenSide,
+			side: Green,
 			dir:  Left,
 		},
 		//Right
 		{
-			side: BlueSide,
+			side: Blue,
 			dir:  Right,
 		},
 	},
 
-	//GreenSide
+	//Green
 	{
 		//Top
 		{
-			side: WhiteSide,
+			side: White,
 			dir:  Left,
 		},
 		//Bottom
 		{
-			side: YellowSide,
+			side: Yellow,
 			dir:  Left,
 		},
 		//Left
 		{
-			side: OrangeSide,
+			side: Orange,
 			dir:  Left,
 		},
 		//Right
 		{
-			side: RedSide,
+			side: Red,
 			dir:  Left,
 		},
 	},
 
-	//YellowSide
+	//Yellow
 	{
 		//Top
 		{
-			side: RedSide,
+			side: Red,
 			dir:  Bottom,
 		},
 		//Bottom
 		{
-			side: OrangeSide,
+			side: Orange,
 			dir:  Top,
 		},
 		//Left
 		{
-			side: GreenSide,
+			side: Green,
 			dir:  Bottom,
 		},
 		//Right
 		{
-			side: BlueSide,
+			side: Blue,
 			dir:  Bottom,
 		},
 	},
 }
 
-func getConnections(s Side) [4]SideConnection {
+func getConnections(s SideColor) [4]SideConnection {
 	return sideConnections[s]
 }

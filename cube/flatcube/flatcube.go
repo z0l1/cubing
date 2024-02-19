@@ -1,14 +1,16 @@
 package flatcube
 
-type Side int
+import "encoding/json"
+
+type SideColor int
 
 const (
-	WhiteSide  Side = 0
-	RedSide    Side = 1
-	BlueSide   Side = 2
-	OrangeSide Side = 3
-	GreenSide  Side = 4
-	YellowSide Side = 5
+	White  SideColor = 0
+	Red    SideColor = 1
+	Blue   SideColor = 2
+	Orange SideColor = 3
+	Green  SideColor = 4
+	Yellow SideColor = 5
 )
 
 type Direction int
@@ -21,12 +23,31 @@ const (
 )
 
 type SideConnection struct {
-	side Side
+	side SideColor
 	dir  Direction
 }
 
-type FlatCube [6][3][3]Side
+type CubeSide [3][3]SideColor
+
+type FlatCube [6]CubeSide
 
 type RubikCubeFlat struct {
 	sides FlatCube
+}
+
+func (rcf *RubikCubeFlat) String() string {
+	bytes, err := json.Marshal(rcf.sides)
+	if err != nil {
+		return ""
+	}
+
+	return string(bytes)
+}
+
+func (rcf *RubikCubeFlat) GetSides() *FlatCube {
+	return &rcf.sides
+}
+
+func (rcf *RubikCubeFlat) GetSide(side SideColor) *CubeSide {
+	return &rcf.sides[side]
 }

@@ -1,10 +1,24 @@
 package cube3d
 
-// cube as 3d obj. sounds more work
-// how would I mark multicolored cube objects.
-// demo sounds easier with "flat"
+type RubikColor string
 
-type Cube [][][]string
+const (
+	White  RubikColor = "w"
+	Red    RubikColor = "r"
+	Blue   RubikColor = "b"
+	Green  RubikColor = "g"
+	Orange RubikColor = "o"
+	Yellow RubikColor = "y"
+	None   RubikColor = "_"
+)
 
-type Cube3d struct {
-}
+//type Piece struct {
+//	top   RubikColor
+//	left  RubikColor
+//	right RubikColor
+//	left  RubikColor
+//}
+//
+//type Cube3d struct {
+//	cube [][][]cubeItem
+//}
