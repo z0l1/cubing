@@ -15,6 +15,11 @@ var sideConnections = [6][4]SideConnection{
 			side: Orange,
 			dir:  Bottom,
 		},
+		//Right
+		{
+			side: Blue,
+			dir:  Top,
+		},
 		//Bottom
 		{
 			side: Red,
@@ -23,11 +28,6 @@ var sideConnections = [6][4]SideConnection{
 		//Left
 		{
 			side: Green,
-			dir:  Top,
-		},
-		//Right
-		{
-			side: Blue,
 			dir:  Top,
 		},
 	},
@@ -39,6 +39,11 @@ var sideConnections = [6][4]SideConnection{
 			side: White,
 			dir:  Bottom,
 		},
+		//Right
+		{
+			side: Blue,
+			dir:  Left,
+		},
 		//Bottom
 		{
 			side: Yellow,
@@ -49,11 +54,6 @@ var sideConnections = [6][4]SideConnection{
 			side: Green,
 			dir:  Right,
 		},
-		//Right
-		{
-			side: Blue,
-			dir:  Left,
-		},
 	},
 
 	//Blue
@@ -61,6 +61,11 @@ var sideConnections = [6][4]SideConnection{
 		//Top
 		{
 			side: White,
+			dir:  Right,
+		},
+		//Right
+		{
+			side: Orange,
 			dir:  Right,
 		},
 		//Bottom
@@ -71,11 +76,6 @@ var sideConnections = [6][4]SideConnection{
 		//Left
 		{
 			side: Red,
-			dir:  Right,
-		},
-		//Right
-		{
-			side: Orange,
 			dir:  Right,
 		},
 	},
@@ -87,6 +87,11 @@ var sideConnections = [6][4]SideConnection{
 			side: Yellow,
 			dir:  Bottom,
 		},
+		//Right
+		{
+			side: Blue,
+			dir:  Right,
+		},
 		//Bottom
 		{
 			side: White,
@@ -97,11 +102,6 @@ var sideConnections = [6][4]SideConnection{
 			side: Green,
 			dir:  Left,
 		},
-		//Right
-		{
-			side: Blue,
-			dir:  Right,
-		},
 	},
 
 	//Green
@@ -109,6 +109,11 @@ var sideConnections = [6][4]SideConnection{
 		//Top
 		{
 			side: White,
+			dir:  Left,
+		},
+		//Right
+		{
+			side: Red,
 			dir:  Left,
 		},
 		//Bottom
@@ -121,11 +126,6 @@ var sideConnections = [6][4]SideConnection{
 			side: Orange,
 			dir:  Left,
 		},
-		//Right
-		{
-			side: Red,
-			dir:  Left,
-		},
 	},
 
 	//Yellow
@@ -133,6 +133,11 @@ var sideConnections = [6][4]SideConnection{
 		//Top
 		{
 			side: Red,
+			dir:  Bottom,
+		},
+		//Right
+		{
+			side: Blue,
 			dir:  Bottom,
 		},
 		//Bottom
@@ -143,11 +148,6 @@ var sideConnections = [6][4]SideConnection{
 		//Left
 		{
 			side: Green,
-			dir:  Bottom,
-		},
-		//Right
-		{
-			side: Blue,
 			dir:  Bottom,
 		},
 	},
