@@ -1,16 +1,24 @@
 package flatcube
 
-func New() *RubikCubeFlat {
-	cube := make([]side, 6, 6)
+func makeSide(color Side) [3][3]Side {
+	return [3][3]Side{
+		{color, color, color},
+		{color, color, color},
+		{color, color, color},
+	}
+}
 
-	cube[WhiteSide] = makeSide("w")
-	cube[RedSide] = makeSide("r")
-	cube[BlueSide] = makeSide("b")
-	cube[OrangeSide] = makeSide("o")
-	cube[GreenSide] = makeSide("g")
-	cube[YellowSide] = makeSide("y")
+func New() *RubikCubeFlat {
+	cube := [6][3][3]Side{
+		makeSide(WhiteSide),
+		makeSide(RedSide),
+		makeSide(BlueSide),
+		makeSide(OrangeSide),
+		makeSide(GreenSide),
+		makeSide(YellowSide),
+	}
 
 	return &RubikCubeFlat{
-		cube,
+		sides: cube,
 	}
 }
