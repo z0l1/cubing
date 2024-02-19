@@ -1,9 +1,12 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 	"rubik/cube/flatcube"
 	"rubik/printer"
+	"strings"
 )
 
 const SquareChar = "\u2588"
@@ -59,15 +62,22 @@ func printCube(sides flatcube.FlatCube) {
 	fmt.Println("-----------------------------------------------------------------------------------------------")
 }
 
+func getInput(reader *bufio.Reader, label string) string {
+	fmt.Print(label)
+	text, _ := reader.ReadString('\n') // reads input until the first occurrence of '\n'
+	return strings.TrimRight(text, "\n")
+}
+
 func main() {
-	//fmt.Println(printer.Red + "\u2588" + "\u2588" + printer.Reset)
-
 	cube := flatcube.New()
+	reader := bufio.NewReader(os.Stdin)
 
-	printCube(*cube.GetSides())
-	//cube.Move()
-	flatcube.RotateFace(cube.GetSide(flatcube.White), false)
-	printCube(*cube.GetSides())
+	inp := ""
+	for inp != "q" {
+		cube.Move(inp)
+		printCube(*cube.GetSides())
+		inp = getInput(reader, "Your move: ")
+	}
 
-	//fmt.Println(printer.Orange, "orange-hi", printer.Reset)
+	fmt.Println("bye")
 }

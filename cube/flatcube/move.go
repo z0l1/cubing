@@ -35,6 +35,9 @@ func (cube *RubikCubeFlat) Move(move string) {
 	valid := true
 	side := White
 	cc := strings.Contains(move, "'")
+	if cc {
+		move = strings.Trim(move, "'")
+	}
 
 	switch move {
 	case "w":
