@@ -13,7 +13,7 @@ var corners = [4][2]int{
 
 var mids = [4][2]int{
 	// top
-	{0, 0},
+	{0, 1},
 	// right
 	{1, 2},
 	// bottom
