@@ -1,7 +1,9 @@
 package flatcube
 
-func makeSide(color SideColor) CubeSide {
-	return CubeSide{
+import "rubik/cube"
+
+func makeSide(color cube.SideColor) cube.FlatSide {
+	return cube.FlatSide{
 		{color, color, color},
 		{color, color, color},
 		{color, color, color},
@@ -9,13 +11,13 @@ func makeSide(color SideColor) CubeSide {
 }
 
 func New() *FlatCube {
-	cube := [6]CubeSide{
-		makeSide(White),
-		makeSide(Red),
-		makeSide(Blue),
-		makeSide(Orange),
-		makeSide(Green),
-		makeSide(Yellow),
+	cube := cube.FlatSides{
+		makeSide(cube.White),
+		makeSide(cube.Red),
+		makeSide(cube.Blue),
+		makeSide(cube.Orange),
+		makeSide(cube.Green),
+		makeSide(cube.Yellow),
 	}
 
 	return &FlatCube{

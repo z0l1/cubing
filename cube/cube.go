@@ -1,8 +1,10 @@
 package cube
 
-type RubikCube interface {
-	MakeMove(move string)
-	MakeMoves(moves []string)
+import "rubik/cube/moves"
+
+type MovableCube interface {
+	MakeMove(move moves.Move)
+	MakeMoves(moves []moves.Move)
 }
 
 type SideColor int

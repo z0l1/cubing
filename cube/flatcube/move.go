@@ -2,54 +2,31 @@ package flatcube
 
 import (
 	"rubik/cube"
+	"rubik/cube/moves"
 	"strings"
 )
 
-func (_c *FlatCube) Move(move string) {
-	if len(move) > 2 || len(move) < 1 {
+func (_c *FlatCube) makeMove(side cube.SideColor, cc bool) {
+	RotateFace(&_c.sides[side], cc)
+	RotateNeighbours(&_c.sides, side, cc)
+}
+
+func (_c *FlatCube) MakeMove(_move moves.Move) {
+	moveStr := string(_move)
+	_, moveOk := moves.Parse(string(_move))
+	if !moveOk {
 		return
 	}
 
-	valid := true
-	side := cube.White
-	cc := strings.Contains(move, "'")
-	if cc {
-		move = strings.Trim(move, "'")
-	}
-
-	switch move {
-	case "w":
-		side = cube.White
-		break
-
-	case "r":
-		side = cube.Red
-		break
-
-	case "b":
-		side = cube.Blue
-		break
-
-	case "o":
-		side = cube.Orange
-		break
-
-	case "g":
-		side = cube.Green
-		break
-
-	case "y":
-		side = cube.Yellow
-		break
-
-	default:
-		valid = false
-	}
-
-	if !valid {
-		return
-	}
+	side := cube.SideColor(strings.Index("wrbogy", string(moveStr[0])))
+	cc := len(moveStr) == 2
 
 	RotateFace(&_c.sides[side], cc)
 	RotateNeighbours(&_c.sides, side, cc)
+}
+
+func (_c *FlatCube) MakeMoves(moves []moves.Move) {
+	for _, move := range moves {
+		_c.MakeMove(move)
+	}
 }

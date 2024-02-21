@@ -1,5 +1,7 @@
 package flatcube
 
+import "rubik/cube"
+
 var corners = [4][2]int{
 	// top left
 	{0, 0},
@@ -22,7 +24,7 @@ var mids = [4][2]int{
 	{1, 0},
 }
 
-func RotateFace(side *CubeSide, cc bool) {
+func RotateFace(side *cube.FlatSide, cc bool) {
 	LEN := len(corners)
 
 	startI := 0

@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"os"
 	"rubik/cube/flatcube"
+	"rubik/cube/moves"
 )
 
 func inputCubeLoop() {
@@ -12,8 +13,8 @@ func inputCubeLoop() {
 
 	inp := ""
 	for inp != "q" {
-		_cube.Move(inp)
-		printCube(*_cube.GetSides())
-		inp = getInput(reader, "Your move: ")
+		_cube.MakeMove(moves.Move(inp))
+		printCube(_cube)
+		inp = getInput(reader, "Your moves: ")
 	}
 }
