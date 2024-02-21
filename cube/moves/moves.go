@@ -1,5 +1,7 @@
 package moves
 
+import "math/rand/v2"
+
 type Move string
 
 const (
@@ -60,4 +62,13 @@ func Parse(move string) (Move, bool) {
 	return mv, ok
 }
 
-//(side cube.SideColor, cc bool, err error)
+func GetRandom(n int) []Move {
+	rndMoves := make([]Move, n, n)
+	m := len(moves) - 1
+
+	for i := 0; i < n; i++ {
+		rndMoves[i] = moves[rand.IntN(m)]
+	}
+
+	return rndMoves
+}
