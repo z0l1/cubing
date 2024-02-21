@@ -1,5 +1,7 @@
 package flatcube
 
+import "rubik/cube"
+
 // could probably make sides indexed so its "fancier" to get neighbours
 // but this explanation took as much time as making the function below
 
@@ -12,22 +14,22 @@ var sideConnections = [6][4]SideConnection{
 	{
 		//Top
 		{
-			side: Orange,
+			side: cube.Orange,
 			dir:  Bottom,
 		},
 		//Right
 		{
-			side: Blue,
+			side: cube.Blue,
 			dir:  Top,
 		},
 		//Bottom
 		{
-			side: Red,
+			side: cube.Red,
 			dir:  Top,
 		},
 		//Left
 		{
-			side: Green,
+			side: cube.Green,
 			dir:  Top,
 		},
 	},
@@ -36,22 +38,22 @@ var sideConnections = [6][4]SideConnection{
 	{
 		//Top
 		{
-			side: White,
+			side: cube.White,
 			dir:  Bottom,
 		},
 		//Right
 		{
-			side: Blue,
+			side: cube.Blue,
 			dir:  Left,
 		},
 		//Bottom
 		{
-			side: Yellow,
+			side: cube.Yellow,
 			dir:  Top,
 		},
 		//Left
 		{
-			side: Green,
+			side: cube.Green,
 			dir:  Right,
 		},
 	},
@@ -60,22 +62,22 @@ var sideConnections = [6][4]SideConnection{
 	{
 		//Top
 		{
-			side: White,
+			side: cube.White,
 			dir:  Right,
 		},
 		//Right
 		{
-			side: Orange,
+			side: cube.Orange,
 			dir:  Right,
 		},
 		//Bottom
 		{
-			side: Yellow,
+			side: cube.Yellow,
 			dir:  Right,
 		},
 		//Left
 		{
-			side: Red,
+			side: cube.Red,
 			dir:  Right,
 		},
 	},
@@ -84,22 +86,22 @@ var sideConnections = [6][4]SideConnection{
 	{
 		//Top
 		{
-			side: Yellow,
+			side: cube.Yellow,
 			dir:  Bottom,
 		},
 		//Right
 		{
-			side: Blue,
+			side: cube.Blue,
 			dir:  Right,
 		},
 		//Bottom
 		{
-			side: White,
+			side: cube.White,
 			dir:  Top,
 		},
 		//Left
 		{
-			side: Green,
+			side: cube.Green,
 			dir:  Left,
 		},
 	},
@@ -108,22 +110,22 @@ var sideConnections = [6][4]SideConnection{
 	{
 		//Top
 		{
-			side: White,
+			side: cube.White,
 			dir:  Left,
 		},
 		//Right
 		{
-			side: Red,
+			side: cube.Red,
 			dir:  Left,
 		},
 		//Bottom
 		{
-			side: Yellow,
+			side: cube.Yellow,
 			dir:  Left,
 		},
 		//Left
 		{
-			side: Orange,
+			side: cube.Orange,
 			dir:  Left,
 		},
 	},
@@ -132,27 +134,27 @@ var sideConnections = [6][4]SideConnection{
 	{
 		//Top
 		{
-			side: Red,
+			side: cube.Red,
 			dir:  Bottom,
 		},
 		//Right
 		{
-			side: Blue,
+			side: cube.Blue,
 			dir:  Bottom,
 		},
 		//Bottom
 		{
-			side: Orange,
+			side: cube.Orange,
 			dir:  Top,
 		},
 		//Left
 		{
-			side: Green,
+			side: cube.Green,
 			dir:  Bottom,
 		},
 	},
 }
 
-func getConnections(s SideColor) [4]SideConnection {
+func getConnections(s cube.SideColor) [4]SideConnection {
 	return sideConnections[s]
 }

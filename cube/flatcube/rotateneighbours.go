@@ -1,8 +1,10 @@
 package flatcube
 
-type SideRow [3]SideColor
+import "rubik/cube"
 
-func getRow(side *CubeSide, start [2]int, step [2]int) *SideRow {
+type SideRow [3]cube.SideColor
+
+func getRow(side *cube.FlatSide, start [2]int, step [2]int) *SideRow {
 	var result SideRow
 	for i := 0; i < 3; i++ {
 		result[i] = side[start[0]][start[1]]
@@ -14,7 +16,7 @@ func getRow(side *CubeSide, start [2]int, step [2]int) *SideRow {
 	return &result
 }
 
-func writeRow(side *CubeSide, start [2]int, step [2]int, src *SideRow) {
+func writeRow(side *cube.FlatSide, start [2]int, step [2]int, src *SideRow) {
 	for i := 0; i < 3; i++ {
 		side[start[0]][start[1]] = src[i]
 
@@ -23,7 +25,7 @@ func writeRow(side *CubeSide, start [2]int, step [2]int, src *SideRow) {
 	}
 }
 
-func RotateNeighbours(sides *flatCubeSides, side SideColor, cc bool) {
+func RotateNeighbours(sides *cube.FlatSides, side cube.SideColor, cc bool) {
 	conns := getConnections(side)
 
 	startI := 0

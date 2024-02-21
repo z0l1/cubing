@@ -1,39 +1,17 @@
 package flatcube
 
-import "strings"
+import (
+	"rubik/cube"
+	"strings"
+)
 
-func rotateSide(sides *flatCubeSides, side SideColor, cc bool) {
-	_sides := *sides
-
-	// rotate face
-	RotateFace(&_sides[side], cc)
-
-	// rotate connecting items
-
-	//startI := 0
-	//endI := 3
-	//dir := 1
-	//if cc {
-	//	startI = 3
-	//	endI = 0
-	//	dir = -1
-	//}
-	//
-}
-
-func rotateSideC(cube *FlatCube, side SideColor) {
-}
-
-func rotateSideCC(cube *FlatCube, side SideColor) {
-}
-
-func (cube *FlatCube) Move(move string) {
+func (_c *FlatCube) Move(move string) {
 	if len(move) > 2 || len(move) < 1 {
 		return
 	}
 
 	valid := true
-	side := White
+	side := cube.White
 	cc := strings.Contains(move, "'")
 	if cc {
 		move = strings.Trim(move, "'")
@@ -41,27 +19,27 @@ func (cube *FlatCube) Move(move string) {
 
 	switch move {
 	case "w":
-		side = White
+		side = cube.White
 		break
 
 	case "r":
-		side = Red
+		side = cube.Red
 		break
 
 	case "b":
-		side = Blue
+		side = cube.Blue
 		break
 
 	case "o":
-		side = Orange
+		side = cube.Orange
 		break
 
 	case "g":
-		side = Green
+		side = cube.Green
 		break
 
 	case "y":
-		side = Yellow
+		side = cube.Yellow
 		break
 
 	default:
@@ -72,6 +50,6 @@ func (cube *FlatCube) Move(move string) {
 		return
 	}
 
-	RotateFace(&cube.sides[side], cc)
-	RotateNeighbours(&cube.sides, side, cc)
+	RotateFace(&_c.sides[side], cc)
+	RotateNeighbours(&_c.sides, side, cc)
 }

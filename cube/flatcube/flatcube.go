@@ -1,16 +1,8 @@
 package flatcube
 
-import "encoding/json"
-
-type SideColor int
-
-const (
-	White  SideColor = 0
-	Red    SideColor = 1
-	Blue   SideColor = 2
-	Orange SideColor = 3
-	Green  SideColor = 4
-	Yellow SideColor = 5
+import (
+	"encoding/json"
+	"rubik/cube"
 )
 
 type Direction int
@@ -23,20 +15,16 @@ const (
 )
 
 type SideConnection struct {
-	side SideColor
+	side cube.SideColor
 	dir  Direction
 }
 
-type CubeSide [3][3]SideColor
-
-type flatCubeSides [6]CubeSide
-
 type FlatCube struct {
-	sides flatCubeSides
+	sides cube.FlatSides
 }
 
-func (rcf *FlatCube) String() string {
-	bytes, err := json.Marshal(rcf.sides)
+func (_c *FlatCube) String() string {
+	bytes, err := json.Marshal(_c.sides)
 	if err != nil {
 		return ""
 	}
@@ -44,10 +32,10 @@ func (rcf *FlatCube) String() string {
 	return string(bytes)
 }
 
-func (rcf *FlatCube) GetSides() *flatCubeSides {
-	return &rcf.sides
+func (_c *FlatCube) GetSides() *cube.FlatSides {
+	return &_c.sides
 }
 
-func (rcf *FlatCube) GetSide(side SideColor) *CubeSide {
-	return &rcf.sides[side]
+func (_c *FlatCube) GetSide(side cube.SideColor) *cube.FlatSide {
+	return &_c.sides[side]
 }
