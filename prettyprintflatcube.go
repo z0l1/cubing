@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"rubik/cube"
 	"rubik/cube/flatcube"
 	"rubik/printer"
 )
@@ -9,32 +10,33 @@ import (
 const SquareChar = "\u2588"
 const DoubleSquareChar = SquareChar + SquareChar
 
-func c(side flatcube.SideColor) string {
+func c(side cube.SideColor) string {
 	switch side {
-	case flatcube.White:
+	case cube.White:
 		return printer.White + DoubleSquareChar + printer.Reset
-	case flatcube.Red:
+	case cube.Red:
 		return printer.Red + DoubleSquareChar + printer.Reset
-	case flatcube.Blue:
+	case cube.Blue:
 		return printer.Blue + DoubleSquareChar + printer.Reset
-	case flatcube.Orange:
+	case cube.Orange:
 		return printer.Orange + DoubleSquareChar + printer.Reset
-	case flatcube.Green:
+	case cube.Green:
 		return printer.Green + DoubleSquareChar + printer.Reset
-	case flatcube.Yellow:
+	case cube.Yellow:
 		return printer.Yellow + DoubleSquareChar + printer.Reset
 	}
 
 	return ""
 }
 
-func printCube(sides flatcube.flatCubeSides) {
-	w := sides[flatcube.White]
-	r := sides[flatcube.Red]
-	b := sides[flatcube.Blue]
-	o := sides[flatcube.Orange]
-	g := sides[flatcube.Green]
-	y := sides[flatcube.Yellow]
+func printCube(_cube *flatcube.FlatCube) {
+	sides := _cube.GetSides()
+	w := sides[cube.White]
+	r := sides[cube.Red]
+	b := sides[cube.Blue]
+	o := sides[cube.Orange]
+	g := sides[cube.Green]
+	y := sides[cube.Yellow]
 
 	fmt.Println("          ", c(w[0][0]), c(w[0][1]), c(w[0][2]), "          ")
 	fmt.Println("          ", c(w[1][0]), c(w[1][1]), c(w[1][2]), "          ")
