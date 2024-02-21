@@ -24,7 +24,7 @@ var mids = [4][2]int{
 	{1, 0},
 }
 
-func RotateFace(side *cube.FlatSide, cc bool) {
+func rotateFace(side *cube.FlatSide, cc bool) {
 	LEN := len(corners)
 
 	startI := 0

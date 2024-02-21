@@ -7,8 +7,8 @@ import (
 )
 
 func (_c *FlatCube) makeMove(side cube.SideColor, cc bool) {
-	RotateFace(&_c.sides[side], cc)
-	RotateNeighbours(&_c.sides, side, cc)
+	rotateFace(&_c.sides[side], cc)
+	rotateNeighbours(&_c.sides, side, cc)
 }
 
 func (_c *FlatCube) MakeMove(_move moves.Move) {
@@ -21,8 +21,8 @@ func (_c *FlatCube) MakeMove(_move moves.Move) {
 	side := cube.SideColor(strings.Index("wrbogy", string(moveStr[0])))
 	cc := len(moveStr) == 2
 
-	RotateFace(&_c.sides[side], cc)
-	RotateNeighbours(&_c.sides, side, cc)
+	rotateFace(&_c.sides[side], cc)
+	rotateNeighbours(&_c.sides, side, cc)
 }
 
 func (_c *FlatCube) MakeMoves(moves []moves.Move) {
