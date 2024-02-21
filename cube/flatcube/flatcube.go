@@ -29,13 +29,13 @@ type SideConnection struct {
 
 type CubeSide [3][3]SideColor
 
-type FlatCube [6]CubeSide
+type flatCubeSides [6]CubeSide
 
-type RubikCubeFlat struct {
-	sides FlatCube
+type FlatCube struct {
+	sides flatCubeSides
 }
 
-func (rcf *RubikCubeFlat) String() string {
+func (rcf *FlatCube) String() string {
 	bytes, err := json.Marshal(rcf.sides)
 	if err != nil {
 		return ""
@@ -44,10 +44,10 @@ func (rcf *RubikCubeFlat) String() string {
 	return string(bytes)
 }
 
-func (rcf *RubikCubeFlat) GetSides() *FlatCube {
+func (rcf *FlatCube) GetSides() *flatCubeSides {
 	return &rcf.sides
 }
 
-func (rcf *RubikCubeFlat) GetSide(side SideColor) *CubeSide {
+func (rcf *FlatCube) GetSide(side SideColor) *CubeSide {
 	return &rcf.sides[side]
 }

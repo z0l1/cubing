@@ -2,7 +2,7 @@ package flatcube
 
 import "strings"
 
-func rotateSide(sides *FlatCube, side SideColor, cc bool) {
+func rotateSide(sides *flatCubeSides, side SideColor, cc bool) {
 	_sides := *sides
 
 	// rotate face
@@ -21,13 +21,13 @@ func rotateSide(sides *FlatCube, side SideColor, cc bool) {
 	//
 }
 
-func rotateSideC(cube *RubikCubeFlat, side SideColor) {
+func rotateSideC(cube *FlatCube, side SideColor) {
 }
 
-func rotateSideCC(cube *RubikCubeFlat, side SideColor) {
+func rotateSideCC(cube *FlatCube, side SideColor) {
 }
 
-func (cube *RubikCubeFlat) Move(move string) {
+func (cube *FlatCube) Move(move string) {
 	if len(move) > 2 || len(move) < 1 {
 		return
 	}

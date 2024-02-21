@@ -28,7 +28,7 @@ func c(side flatcube.SideColor) string {
 	return ""
 }
 
-func printCube(sides flatcube.FlatCube) {
+func printCube(sides flatcube.flatCubeSides) {
 	w := sides[flatcube.White]
 	r := sides[flatcube.Red]
 	b := sides[flatcube.Blue]

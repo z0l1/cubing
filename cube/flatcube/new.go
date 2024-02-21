@@ -8,7 +8,7 @@ func makeSide(color SideColor) CubeSide {
 	}
 }
 
-func New() *RubikCubeFlat {
+func New() *FlatCube {
 	cube := [6]CubeSide{
 		makeSide(White),
 		makeSide(Red),
@@ -18,7 +18,7 @@ func New() *RubikCubeFlat {
 		makeSide(Yellow),
 	}
 
-	return &RubikCubeFlat{
+	return &FlatCube{
 		sides: cube,
 	}
 }

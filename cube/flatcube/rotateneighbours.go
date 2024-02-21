@@ -23,7 +23,7 @@ func writeRow(side *CubeSide, start [2]int, step [2]int, src *SideRow) {
 	}
 }
 
-func RotateNeighbours(sides *FlatCube, side SideColor, cc bool) {
+func RotateNeighbours(sides *flatCubeSides, side SideColor, cc bool) {
 	conns := getConnections(side)
 
 	startI := 0
