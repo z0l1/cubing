@@ -2,47 +2,46 @@ package main
 
 import (
 	"fmt"
-	"math/rand/v2"
-	"rubik/cube/flatcube"
 	"rubik/cube/moves"
+	"rubik/cubehandler"
 	"time"
 )
 
-func getRandomMoves(n int) []moves.Move {
-	allMoves := moves.GetAll()
-	m := len(allMoves) - 1
-	moves := make([]moves.Move, n, n)
-
-	for i := 0; i < n; i++ {
-		moves[i] = allMoves[rand.IntN(m)]
-	}
-
-	return moves
-
-}
-
 func genMovesBenchmark(n int) []moves.Move {
 	genStart := time.Now()
-	moves := getRandomMoves(n)
+	_moves := moves.GetRandom(n)
 	genElapsed := time.Since(genStart)
 	fmt.Println("generating", n, "moves took", genElapsed)
 
-	return moves
+	return _moves
+}
+
+func makeThreadedMoves(ch *chan<- moves.Move, threadCnt int) {
+	n := 1000
+	for threadI := range threadCnt {
+		fmt.Println("starting thread", threadI)
+
+		go func(i int) {
+			fmt.Println("started generating moves")
+			_moves := genMovesBenchmark(n)
+			fmt.Println("finished generating moves", i)
+			for _, _move := range _moves {
+				fmt.Println("sending from thread", i)
+				*ch <- _move
+			}
+		}(threadI)
+	}
 }
 
 func main() {
 	fmt.Println("hi")
-	_cube := flatcube.New()
 
-	m := 10
-	n := 1000 * 1000
-	_moves := genMovesBenchmark(n)
+	handler := cubehandler.New()
+	moveCh := handler.Start()
 
-	for i := range m {
-		moveStart := time.Now()
-		_cube.MakeMoves(_moves)
-		moveElapsed := time.Since(moveStart)
-		fmt.Println(i, ".: moving cube", len(_moves), "times took", moveElapsed)
+	go makeThreadedMoves(moveCh, 5)
+
+	for {
 	}
 
 	fmt.Println("bye")

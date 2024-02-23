@@ -2,6 +2,7 @@ package cubehandler
 
 import (
 	"rubik/cube"
+	"rubik/cube/flatcube"
 	"rubik/cube/moves"
 	"time"
 )
@@ -47,6 +48,8 @@ func (handler *CubeHandlerImpl) Start() *chan<- moves.Move {
 		return &sendOnly
 	}
 
+	handler.cube.Scramble()
+
 	// buffered for 10k moves
 	ch := make(chan moves.Move, 10000)
 
@@ -80,5 +83,6 @@ func New() CubeHandler {
 	return &CubeHandlerImpl{
 		state:  Idle,
 		moveCh: nil,
+		cube:   flatcube.New(),
 	}
 }
